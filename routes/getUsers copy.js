@@ -8,7 +8,7 @@ router.get('/users', async (req,res)=> {
 
     console.log('Executing Get All Users route...')
 
-    const serviceAccount = require(process.env.FIRESTORE_SERVICE_ACCOUNT_KEY);
+    const serviceAccount = require(json.parse(process.env.FIRESTORE_SERVICE_ACCOUNT_KEY));
 
     if ( !admin.apps.length ) admin.initializeApp({
         credential: admin.credential.cert(serviceAccount)
